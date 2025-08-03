@@ -1,14 +1,171 @@
-font.family : sans-serif
-font.sans-serif : Source Han Serif CN
-axes.unicode_minus : False
-figure.figsize       : 6.0, 4.0
-figure.dpi           : 300
-savefig.dpi          : 300
-savefig.format       : svg
+### 线条
+# 详见 http://matplotlib.org/api/artist_api.html#module-matplotlib.lines 获取线条属性信息。
+lines.linewidth   : 2.0     # 线宽（单位：点）
+lines.linestyle   : -       # 实线
+lines.marker      : None    # 默认标记
+lines.markeredgewidth  : 0.0     # 标记符号边缘线宽
+lines.markersize  : 6.0            # 标记大小（单位：点）
+#lines.dash_joinstyle : miter        # miter|round|bevel
+#lines.dash_capstyle : butt          # butt|round|projecting
+lines.solid_joinstyle : round       # miter|round|bevel
+lines.solid_capstyle : round   # butt|round|projecting
+lines.antialiased : True         # 抗锯齿渲染线条
 
-lines.linewidth      : 2
-axes.labelsize       : medium
-axes.titlesize       : large
-xtick.labelsize      : small
-ytick.labelsize      : small
-legend.fontsize      : small
+### 补丁
+# 补丁是填充二维空间的图形对象，如多边形或圆。详见
+# http://matplotlib.org/api/artist_api.html#module-matplotlib.patches 获取补丁属性信息
+patch.linewidth        : 1.0     # 边缘宽度（单位：点）
+patch.facecolor        : 0.75
+patch.edgecolor        : 0.5
+patch.antialiased      : True    # 抗锯齿渲染补丁
+
+### 字体
+#
+# text.Text 使用的字体属性。详见
+# http://matplotlib.org/api/font_manager_api.html 获取字体属性信息。
+# 下方 6 个字体属性用于字体匹配，均给出默认值。
+#
+# font.family 属性有五种值：'serif'（如 Times）、'sans-serif'（如 Helvetica）、'cursive'（如 Zapf-Chancery）、'fantasy'（如 Western）、'monospace'（如 Courier）。每种字体族都有一个按优先级排列的默认字体列表。当 text.usetex 为 False 时，font.family 也可为具体字体名。
+#
+# font.style 属性有三种值：normal（或 roman）、italic 或 oblique。如果没有 italic，则使用 oblique。
+#
+# font.variant 属性有两种值：normal 或 small-caps。对于可缩放的 TrueType 字体，small-caps 等同于使用较小字号（约为当前字号的 83%）。
+#
+# font.weight 属性有效值有 13 个：normal、bold、bolder、lighter、100、200、300、...、900。normal 等同于 400，bold 等同于 700。bolder 和 lighter 是相对当前权重的值。
+#
+# font.stretch 属性有 11 个值：ultra-condensed、extra-condensed、condensed、semi-condensed、normal、semi-expanded、expanded、extra-expanded、ultra-expanded、wider、narrower。该属性当前未实现。
+#
+# font.size 属性为文本默认字号，单位为 pt。12pt 为标准值。
+#
+font.family         : serif
+font.style          : normal
+font.variant        : normal
+font.weight         : medium
+font.stretch        : normal
+# 注意 font.size 控制默认文本大小。要配置特殊文本大小（刻度标签、坐标轴标签、标题等），请参见 rc 设置。特殊文本大小可相对 font.size 定义，取值有：xx-small、x-small、small、medium、large、x-large、xx-large、larger、smaller
+font.size           : 12.0
+font.serif          : Source Han Serif CN, Noto Serif CJK SC, SimSun, Songti SC, Source Han Serif, Times, Palatino, New Century Schoolbook, Bookman, Computer Modern Roman
+font.sans-serif     : Source Han Sans CN, Noto Sans CJK SC, Microsoft YaHei, Arial, Helvetica, Source Han Serif CN, Source Han Serif, Avant Garde, Computer Modern Sans serif
+font.cursive        : STXinwei, KaiTi, Zapf Chancery, Sand, cursive
+font.fantasy        : Comic Sans MS, Chicago, Charcoal, Impact, Western, fantasy
+font.monospace      : Source Code Pro, Noto Sans Mono CJK SC, Microsoft YaHei Mono, Courier, Computer Modern Typewriter
+
+### 文本
+# text.Text 使用的文本属性。详见
+# http://matplotlib.org/api/artist_api.html#module-matplotlib.text 获取文本属性信息
+
+text.color          : black
+
+### 坐标轴
+# 默认背景色和边框色、默认刻度大小、默认刻度标签字体大小等。详见
+# http://matplotlib.org/api/axes_api.html#module-matplotlib.axes 获取坐标轴属性信息。
+#axes.hold           : True    # 默认是否清除坐标轴
+axes.facecolor      : white   # 坐标轴背景色
+#axes.edgecolor      : black   # 坐标轴边框色
+#axes.linewidth      : 1.0     # 边框线宽
+axes.grid           : True   # 是否显示网格
+axes.titlesize      : 24.0   # 坐标轴标题字体大小
+axes.labelsize      : 18.0  # x、y 轴标签字体大小
+#axes.labelweight    : normal  # x、y 轴标签字体粗细
+#axes.labelcolor     : black
+axes.axisbelow      : True   # 坐标轴网格线和刻度线是否在图形元素下方
+                            #（如线条、文本等）
+axes.formatter.limits : -7, 7 # 当坐标轴范围的 log10 小于第一个或大于第二个时使用科学计数法
+#axes.formatter.use_locale : False # True 时按用户本地化格式化刻度标签
+                                 # 例如在 fr_FR 本地化下用 ',' 作为小数分隔符。
+axes.formatter.use_mathtext : True # True 时科学计数法使用 mathtext。
+#axes.unicode_minus  : True    # 使用 unicode 负号而非连字符。详见
+                              # http://en.wikipedia.org/wiki/Plus_and_minus_signs#Character_codes
+axes.xmargin        : 0  # x 轴边距。见 `axes.Axes.margins`
+axes.ymargin        : 0  # y 轴边距。见 `axes.Axes.margins`
+
+polaraxes.grid      : True    # 极坐标轴显示网格
+#axes3d.grid         : True    # 三维坐标轴显示网格
+axes.unicode_minus : False # 使用 unicode 负号而非连字符。
+
+### 刻度
+# 详见 http://matplotlib.org/api/axis_api.html#matplotlib.axis.Tick
+xtick.major.size     : 4      # 主刻度大小（单位：点）
+xtick.minor.size     : 2      # 次刻度大小（单位：点）
+xtick.major.width    : 1    # 主刻度线宽（单位：点）
+xtick.minor.width    : 1    # 次刻度线宽（单位：点）
+xtick.major.pad      : 6      # 主刻度标签距离（单位：点）
+#xtick.minor.pad      : 4      # 次刻度标签距离（单位：点）
+#xtick.color          : k      # 刻度标签颜色
+#xtick.labelsize      : medium # 刻度标签字体大小
+xtick.direction      : out     # 方向：in、out 或 inout
+
+ytick.major.size     : 4      # 主刻度大小（单位：点）
+ytick.minor.size     : 2      # 次刻度大小（单位：点）
+ytick.major.width    : 1    # 主刻度线宽（单位：点）
+ytick.minor.width    : 1    # 次刻度线宽（单位：点）
+ytick.major.pad      : 6      # 主刻度标签距离（单位：点）
+#ytick.minor.pad      : 4      # 次刻度标签距离（单位：点）
+#ytick.color          : k      # 刻度标签颜色
+#ytick.labelsize      : medium # 刻度标签字体大小
+ytick.direction      : out     # 方向：in、out 或 inout
+
+### 网格
+grid.color       :   0.7   # 网格颜色
+grid.linestyle   :   solid    
+# grid.linewidth   :   0.5     # 单位：点
+grid.alpha       :   0.2     # 透明度，范围 0.0 到 1.0
+
+### 图例
+#legend.fancybox      : False  # True 时图例为圆角框，否则为矩形
+#legend.isaxes        : True
+#legend.numpoints     : 2      # 图例线条上的点数
+#legend.fontsize      : large
+#legend.borderpad     : 0.5    # 边框空白，单位为字体大小
+#legend.markerscale   : 1.0    # 图例标记相对原始大小的比例
+# 下列尺寸单位为坐标轴坐标
+#legend.labelspacing  : 0.5    # 图例条目间垂直间距，单位为字体大小的分数
+#legend.handlelength  : 2.     # 图例线条长度，单位为字体大小的分数
+#legend.handleheight  : 0.7     # 图例标记高度，单位为字体大小的分数
+#legend.handletextpad : 0.8    # 图例线与文本间距，单位为字体大小的分数
+#legend.borderaxespad : 0.5   # 坐标轴与图例边缘间距，单位为字体大小的分数
+#legend.columnspacing : 2.    # 坐标轴与图例边缘间距，单位为字体大小的分数
+#legend.shadow        : False
+#legend.frameon       : True   # 是否绘制图例边框
+#legend.scatterpoints : 3 # 散点图例点数
+
+### 图形
+# 详见 http://matplotlib.org/api/figure_api.html#matplotlib.figure.Figure
+figure.figsize   : 8, 6    # 图形尺寸（单位：英寸）
+figure.dpi       : 300      # 图形分辨率（DPI）
+figure.facecolor : white    # 图形背景色；0.75 表示灰度
+#figure.edgecolor : white   # 图形边框色
+figure.autolayout : True  # True 时自动调整子图参数以适应图形
+figure.max_open_warning : 40  # 通过 pyplot 接口最多可打开的图形数，超过则警告。小于 1 时禁用此功能。
+# 图形子图参数。所有尺寸为图形宽度或高度的分数
+#figure.subplot.left    : 0.125  # 子图左侧边距
+#figure.subplot.right   : 0.9    # 子图右侧边距
+#figure.subplot.bottom  : 0.1    # 子图底部边距
+#figure.subplot.top     : 0.9    # 子图顶部边距
+#figure.subplot.wspace  : 0.2    # 子图间水平空白
+#figure.subplot.hspace  : 0.2    # 子图间垂直空白
+
+### 图像
+#image.aspect : equal             # equal | auto | 数值
+#image.interpolation  : bilinear  # 详见 help(imshow) 获取选项
+#image.cmap   : jet               # gray | jet 等
+#image.lut    : 256               # 颜色映射表大小
+#image.origin : upper             # lower | upper
+#image.resample  : False
+
+### 等高线图
+#contour.negative_linestyle :  dashed # dashed | solid
+
+
+### 保存图形
+#path.simplify : True   # True 时通过移除“不可见”点简化路径，减少文件大小并提升渲染速度
+#path.simplify_threshold : 0.1  # 相似度低于此阈值的顶点会在简化过程中被移除
+#path.snap : True # True 时，满足特定条件的轴对齐路径会对齐到最近像素。False 时不对齐。
+#path.sketch : None # 可为 None 或 (scale, length, randomness) 三元组。
+                   # scale 为垂直于线条的抖动幅度（像素），length 为线条上的抖动长度（像素），randomness 为长度的随机缩放因子。
+
+# 默认 savefig 参数可与显示参数不同，例如可用更高分辨率或设置白色背景
+savefig.dpi         : 300      # 图形分辨率（DPI）
+savefig.format      : svg      # png, ps, pdf, svg
+savefig.bbox        : tight # 'tight' 或 'standard'
+savefig.pad_inches  : 0.1      # bbox 为 'tight' 时的填充
